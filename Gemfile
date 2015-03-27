@@ -11,11 +11,18 @@ def location_for(place, fake_version = nil)
 end
 
 group :development, :unit_tests do
-  gem 'rspec-core', '3.1.7',     :require => false
-  gem 'puppetlabs_spec_helper',  :require => false
-  gem 'simplecov',               :require => false
-  gem 'puppet_facts',            :require => false
-  gem 'json',                    :require => false
+  # rspec must be v2 for ruby 1.8.7
+  if RUBY_VERSION >= '1.8.7' and RUBY_VERSION < '1.9'
+    gem 'rspec', '~> 2.0'
+  end
+  gem 'rake',                               :require => false
+  gem 'rspec-puppet', '~> 1.0',             :require => false
+  gem 'puppetlabs_spec_helper', '>= 0.1.0', :require => false
+  gem 'puppet-lint',                        :require => false
+  gem 'simplecov',                          :require => false
+  gem 'puppet_facts',                       :require => false
+  gem 'json',                               :require => false
+  gem 'pry',                                :require => false
 end
 
 group :system_tests do
