@@ -14,10 +14,10 @@ group :development, :unit_tests do
   # rspec must be v2 for ruby 1.8.7
   if RUBY_VERSION >= '1.8.7' and RUBY_VERSION < '1.9'
     gem 'rspec', '~> 2.0'
+  else
+    gem 'rspec-core',   '3.1.7',            :require => false
   end
-  gem 'rake',                               :require => false
-  gem 'rspec-puppet', '~> 1.0',             :require => false
-  gem 'puppetlabs_spec_helper', '>= 0.1.0', :require => false
+  gem 'puppetlabs_spec_helper',             :require => false
   gem 'puppet-lint',                        :require => false
   gem 'simplecov',                          :require => false
   gem 'puppet_facts',                       :require => false
